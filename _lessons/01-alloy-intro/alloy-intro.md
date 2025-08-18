@@ -17,8 +17,6 @@ title: Alloy Introduction
 - [Class notes on Alloy constraints]({{ site.baseurl }}{% link _lessons/01-alloy-intro/02-alloy-intro-constraints.pdf %})
 
 - [Old recorded lectures](https://youtube.com/playlist?list=PLeIbBi3CwMZxRUSUJbwyeerfCptuP19Br)
-- Old class notes on an introduction to Alloy [[part 1]({{ site.baseurl }}{% link _lessons/01-alloy-intro/old-alloy-intro-1.pdf %}), [part 2]({{ site.baseurl }}{% link _lessons/01-alloy-intro/old-alloy-intro-2.pdf %})]
-  - In particular try to do the exercises in these lecture notes
 
 ### Recommended readings
 

@@ -12,7 +12,6 @@ title: Alloy modeling: Academia example
 ## Readings
 
 - Class notes on modelling an [Academia setting in Alloy]({{ site.baseurl }}{% link _lessons/01-alloy-intro/03-academia.pdf %})
-- Old class notes on modelling an [Academia setting in Alloy]({{ site.baseurl }}{% link _lessons/01-alloy-intro/old-academia-model.pdf %}), with more details in the slides.
 
 ## Resources
 
