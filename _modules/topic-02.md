@@ -18,5 +18,8 @@ title: Topic 02 - Dynamic Systems
 22 Sep
 : Laboratory: Memory Management
 
-24 Sep
+24, 29 Sep
+: No class
+
+01 Oct
 : **Exam 1**
