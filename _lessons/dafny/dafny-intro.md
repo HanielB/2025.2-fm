@@ -11,7 +11,7 @@ title: Dafny Introduction
 
 ## Readings
 
-- Chapters 0 and 1 of the Program Proofs textbook
+- Chapters 0-2 of the Program Proofs textbook
 - Lecture notes by Cesare Tinelly:
   - [Reasoning About Programs in Dafny](https://homepage.cs.uiowa.edu/~tinelli/classes/181/Fall25/Notes/11-dafny-introduction.pdf)
   - [Floyd-Hoare logic](https://homepage.cs.uiowa.edu/~tinelli/classes/181/Fall25/Notes/12-hoare-logic.pdf)
