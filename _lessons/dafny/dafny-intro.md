@@ -11,8 +11,11 @@ title: Dafny Introduction
 
 ## Readings
 
+- Chapters 0 and 1 of the Program Proofs textbook
+- Lecture notes by Cesare Tinelly:
+  - [Reasoning About Programs in Dafny](https://homepage.cs.uiowa.edu/~tinelli/classes/181/Fall25/Notes/11-dafny-introduction.pdf)
+  - [Floyd-Hoare logic](https://homepage.cs.uiowa.edu/~tinelli/classes/181/Fall25/Notes/12-hoare-logic.pdf)
 - Sections 1-5 of [[Koen12]({{ site.baseurl }}{% link _lessons/dafny/Koen12.pdf %})], an introduction to the Dafny language
-  - Also available as an [online tutorial](http://rise4fun.com/Dafny/tutorial/guide)
 - [Examples]({{ site.baseurl }}{% link _lessons/dafny/examples.tar.gz %})
 - [Dafny Reference Manual](https://dafny-lang.github.io/dafny/DafnyRef/DafnyRef)
 
