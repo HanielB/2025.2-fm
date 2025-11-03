@@ -18,9 +18,6 @@ title: Dafny invariants and arrays
 
 - Lectures notes by Cesare Tinelli:
   - [Recursion and Termination](https://homepage.cs.uiowa.edu/~tinelli/classes/181/Fall25/Notes/13-recursion-and-termination.pdf)
-### Recommended readings
-
-- Lectures notes by Cesare Tinelli:
   - [Arrays in Dafny (part I)]({{ site.baseurl }}{% link _lessons/dafny/cesare-arrays.pdf %})
   - [Arrays in Dafny (part II)]({{ site.baseurl }}{% link _lessons/dafny/cesare-arrays-ii.pdf %})
 
