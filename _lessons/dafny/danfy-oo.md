@@ -19,6 +19,8 @@ title: Dafny and object orientation
 ### Recommended readings
 
 - [Dafny power user](http://leino.science/dafny-power-user/)
+- Lectures notes by Cesare Tinelli:
+  - [Reasoning about Programs with Objects in Dafny]({{ site.baseurl }}{% link _lessons/dafny/cesare-oo.pdf %})
 
 ## Collection types
 
@@ -190,33 +192,40 @@ of dynamic frames in Dafny to specify and verify programs using objects.
 ### Example
 
 ```c++
-class Queue<T> {
-  // specification-only field representing abstract state
-  ghost var Content : seq<T>;
+// Parametric FIFO queue
+// Implementation uses an array to store the queue elements
+// in order of arrival
 
-  // concrete state
-  var a: array<T>;
-  var n: nat;
+class Queue<T> {
+  // Abtract representation of the queue's elements
+  ghost var Content: seq<T>
+
+  // Concrete implementation of the queue
+  // container for the queue's elements
+  var a: array<T>
+  // size of the queue
+  var n: nat
 
   ghost predicate Valid()
-    reads this, a
+  reads this, a
   {
-    // consistency conditions for concrete state
-    a.Length > 0 &&
+    // Concrete class invariant
     n <= a.Length &&
+    0 < a.Length &&
 
-    // consistency conditions for abstract state
+    // Connection between abstract and concrete state
     Content == a[0..n]
   }
 
   constructor (d: T)
-    ensures Valid();
-    ensures fresh(a);
-    ensures Content == [];
+    ensures Valid()
+    ensures fresh(a)
+    ensures Content == []
   {
     a := new T[5](_ => d); // initializes every array element to d
     n := 0;
 
+    // ghost code
     Content := [];
   }
 
@@ -248,17 +257,18 @@ class Queue<T> {
     a[n] := e;
     n := n + 1;
 
+    // ghost code
     Content := a[0..n];
   }
 
   method dequeue() returns (e: T)
     modifies this, a
-    requires Valid()
     requires Content != []
+    requires Valid()
     ensures Valid()
     ensures a == old(a)
-    ensures [e] + Content == old(Content)
     ensures Content == old(Content[1..])
+    ensures [e] + Content == old(Content)
   {
     e := a[0];
     n := n - 1;
@@ -266,27 +276,24 @@ class Queue<T> {
       a[i] := a[i + 1];
     }
 
+    // ghost code
     Content := a[0..n];
   }
 }
-
 method Main ()
 {
-  var q := new Queue<int>(0);
-  q.enqueue(1);
-  q.enqueue(2);
-  q.enqueue(3);
-  q.enqueue(2);
-  q.enqueue(4);
+  var q := new Queue<int>(0);  assert q.Content == [];
+  q.enqueue(1);                assert q.Content == [1];
+  q.enqueue(2);                assert q.Content == [1,2];
+  q.enqueue(3);                assert q.Content == [1,2,3];
+  q.enqueue(2);                assert q.Content == [1,2,3,2];
+  q.enqueue(4);                assert q.Content == [1,2,3,2,4];
 
-  var f := q.front();
-  assert f == 1;
+  var f := q.front();          assert f == 1 && q.a[..q.n] == [1,2,3,2,4];
   print "Front of the list is ", f, "\n";
-  f := q.dequeue();
-  q.enqueue(5);
+  f := q.dequeue();            assert           q.Content == [2,3,2,4];
+  q.enqueue(5);                assert           q.Content == [2,3,2,4,5];
   f := q.front();
-  assert f == 2;
-  assert q.Content == [2,3,2,4,5];
   print "Now front of the list is ", f, "\n";
 }
 ```
